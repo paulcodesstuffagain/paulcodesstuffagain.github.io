@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATÁ MATÁ | inventory ⟐ cataloging ⟐ archiving</title>
+    
+    <!-- Official Logo Favicon -->
+    <link rel="icon" type="image/jpeg" href="Picture1.svg">
+    
+    <!-- JetBrains Mono Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Palette mapped directly from the presentation document colors */
+            --yellow: #FFD21F;
+            --magenta: #CC007E;
+            --white: #FFFFFF;
+            --max-width: 900px;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Dynamic Section Layout - Custom color profiles matching the PPTX structural design */
+        section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 2rem;
+        }
+
+        /* Slide Content Constraint Container */
+        .slide-content {
+            max-width: var(--max-width);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* SLIDE 1 & SLIDE 6: Yellow Background with Magenta Text Elements */
+        .theme-yellow {
+            background-color: var(--yellow);
+            color: var(--magenta);
+        }
+
+        /* SLIDE 2: Magenta Background with Yellow Text Elements */
+        .theme-magenta {
+            background-color: var(--magenta);
+            color: var(--yellow);
+        }
+
+        /* SLIDE 3, 4, 5 (Framework): Clean Solid Off-White with Contrasting Deep Magenta Text Elements */
+        .theme-white {
+            background-color: var(--white);
+            color: var(--magenta);
+        }
+
+        /* Slide 1 Specifics */
+        #home .slide-content {
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-container {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 0;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 0;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            text-transform: lowercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        /* Formatting Text Across Different Block Themes */
+        .intro-lead {
+            font-size: 2.2rem;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+        }
+
+        .body-text {
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin-bottom: 1.75rem;
+            font-weight: 400;
+        }
+
+        /* Adjust tone opacity gracefully depending on contrasting backgrounds */
+        .theme-yellow .body-text { color: rgba(196, 0, 122, 0.9); }
+        .theme-magenta .body-text { color: rgba(252, 209, 22, 0.9); }
+        .theme-white .body-text { color: rgba(196, 0, 122, 0.85); }
+
+        .framework-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--magenta);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .pillar {
+            margin-bottom: 5rem;
+            border-top: 1px solid rgba(196, 0, 122, 0.15);
+            padding-top: 2.5rem;
+        }
+
+        .pillar:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .pillar:last-child {
+            margin-bottom: 0;
+        }
+
+        h3 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        /* Slide 6 Specifics */
+        #contact .slide-content {
+            text-align: center;
+            align-items: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+        }
+
+        .email-link {
+            font-size: 2rem;
+            color: var(--magenta);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 4px solid var(--magenta);
+            padding-bottom: 0.3rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .email-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Mobile Layout Compactions */
+        @media (max-width: 768px) {
+            section { padding: 4rem 1.5rem; }
+            .logo-container { max-width: 240px; }
+            h1 { font-size: 2.5rem; }
+            .intro-lead { font-size: 1.5rem; }
+            .body-text { font-size: 1.05rem; }
+            h3 { font-size: 1.6rem; }
+            #contact h2 { font-size: 1.8rem; }
+            .email-link { font-size: 1.35rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Yellow Theme -->
+    <section id="home" class="theme-yellow">
+        <div class="slide-content">
+            <div class="logo-container">
+                <img src="Picture1.svg" alt="MATÁ MATÁ Logo" class="logo-img">
+            </div>
+            <h1>MATÁ<br>MATÁ</h1>
+            <div class="tagline"><br>inventory ⟐ cataloging ⟐ archiving</div>
+        </div>
+    </section>
+
+    <!-- Slide 2: Magenta Theme Shift -->
+    <section id="about" class="theme-magenta">
+        <div class="slide-content">
+            <p class="body-text">We partner with individual artists, private collectors and small communities to meticulously document, organize, and archive their art.</p>
+            <p class="body-text">From physical handling and cataloging to creating digital records, we build bespoke systems that give you clarity and control over what you own or create.</p>
+            <div class="intro-lead" style="margin-top: 2rem; margin-bottom: 0;"><I>At</i> MATÁ MATÁ,<br><I>we look closer.</i></div>
+        </div>
+    </section>
+
+    <!-- Slides 3, 4, 5 (Framework): Clean Minimalist White Background Theme -->
+    <section id="framework" class="theme-white">
+        <div class="slide-content">
+            <div>
+                <span class="framework-title">Our Framework</span>
+            </div>
+            <p class="body-text" style="font-style: italic; margin-bottom: 3.5rem;">Our practice is built on a framework designed to shift power back to the creator, the collector, and the community.</p>
+
+            <!-- Pillar 1 -->
+            <div class="pillar">
+                <h3>DE-CENTRALIZED</h3>
+                <p class="body-text">We believe archiving shouldn't just belong to massive institutions or elite galleries.</p>
+                <p class="body-text">We bring professional cataloging directly to your space, beyond institutional gatekeeping.</p>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="pillar">
+                <h3>DATA-DRIVEN</h3>
+                <p class="body-text">We enable artists, collectors and small communities to own, control, and utilize their own data.</p>
+                <p class="body-text">No third-party dependencies--just your collection carefully mapped and in your hands.</p>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="pillar">
+                <h3>DYNAMIC</h3>
+                <p class="body-text">Accession records and archives are inherently political; they shape how collections are understood.</p>
+                <p class="body-text">We reject the idea of a fixed archive aligned with colonial standards.</p>
+                <p class="body-text">We build agile digital systems that are responsive to changing cultural realities and fluid narratives.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Yellow Theme Loop Back -->
+    <section id="contact" class="theme-yellow">
+        <div class="slide-content">
+            <h2>Let us take a look.</h2>
+            <a href="mailto:hello@matamata.ph" class="email-link">hello@matamata.ph</a>
+        </div>
+    </section>
+
+</body>
+</html>
