@@ -298,6 +298,81 @@
     color: var(--yellow);
 }
 
+        footer {
+            width: 100%;
+            padding: 5px 0 5px 0; /* Generous breathing room above and below */
+            margin-top: 0px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1); /* Optional faint divider line */
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column; /* Stacks the elements vertically */
+            align-items: center;    /* Centers everything horizontally */
+            gap: 16px;              /* Space between the link and the copyright */
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        /* Elegant underline effect on hover */
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            color: rgba(0, 0, 0, 0.5); /* Sets a soft tone for the whole line */
+            margin: 2.5px 0; /* Adds spacing above and below the line */
+        }
+
+        /* Keeps the pipe divider subtle */
+        .copyright .divider {
+            margin: 0 8px;
+            opacity: 0.5;
+        }
+
+        /* Styles the inline link specifically */
+        .copyright a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.8); /* Makes 'socials' slightly darker/bolder than the copyright text */
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .copyright a:hover {
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
@@ -441,6 +516,16 @@
             <a href="mailto:hello@matamata.ph" class="email-link">hello@matamata.ph</a>
         </div>
     </section>
+    
+    <footer>
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 MATÁ MATÁ. All rights reserved.
+                <span class="divider">|</span>
+                <a href="https://instagram.com/matamata.ph" target="_blank" rel="noopener">socials</a>
+            </p>
+        </div>
+    </footer>
 
 </body>
 </html>
