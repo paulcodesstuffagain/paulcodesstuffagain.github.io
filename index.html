@@ -11,10 +11,6 @@
     <meta property="og:title" content="MATÁ MATÁ | inventory ⟐ cataloging ⟐ archiving | Manila, Philippines">
     <meta property="og:description" content="We partner with artists, collectors, and communities to build bespoke systems that give you clarity and control over your art.">
     <meta property="og:image" content="https://matamata.ph/meta-share-image.jpg">
-    <meta name="geo.region" content="PH-00" />
-    <meta name="geo.placename" content="Makati, Metro Manila" />
-    <meta name="geo.position" content="14.5547;121.0244" />
-    <meta name="ICBM" content="14.5547, 121.0244" />
     <link rel="icon" type="image/jpeg" href="mata.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,8 +18,8 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --yellow: #ffd21f;
-            --magenta: #cc007e;
+            --yellow: rgba(255, 210, 31, 1);
+            --magenta: rgba(204, 0, 126, 1);
             --white: #FFFFFF;
             --dark-bg: #111111;
             --dark-text: #FFFFFF;
@@ -31,21 +27,19 @@
             --font-family: 'JetBrains Mono', monospace;
             --line-height-base: 1.6;
             --max-width: 900px;
-            --step-num-bg: #cc007e;
-            --step-num-color: #ffd21f;
-            --step-num-border: #ffd21f;
-            --step-line-color: #ffd21f;
+            --step-num-bg: rgba(204, 0, 126, 1);
+            --step-num-color: rgba(255, 210, 31, 1);
+            --step-num-border: rgba(255, 210, 31, 1);
+            --step-line-color: rgba(255, 210, 31, 1);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-text-size-adjust: 100%; }
         html, body { width: 100%; font-family: var(--font-family); line-height: var(--line-height-base); -webkit-font-smoothing: antialiased; }
         section { min-height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; padding: 6rem 2rem; }
         .slide-content { max-width: var(--max-width); width: 100%; display: flex; flex-direction: column; justify-content: center; margin: 0 auto; }
         
-        /* Direct container layout fixes */
         .text-left { align-items: flex-start !important; text-align: left !important; }
         .text-center { align-items: center !important; text-align: center !important; }
         
-        /* Cascade overrides to handle inner alignment structures safely */
         .text-center .slide-content { align-items: center !important; text-align: center !important; }
         .text-left .slide-content { align-items: flex-start !important; text-align: left !important; }
         .text-center .pillar { text-align: center !important; align-items: center !important; }
@@ -62,37 +56,36 @@
         .logo-img { width: 100%; height: auto; display: block; }
         
         h1 { font-size: 4rem; font-weight: 300; line-height: 1; margin-bottom: 1.5rem; text-transform: uppercase; }
-        .tagline { font-size: 1.15rem; text-transform: lowercase; letter-spacing: 0.05em; font-weight: 500; }
+        .tagline { font-size: 1.15rem; font-weight: 400; text-transform: lowercase; letter-spacing: 0.05em; }
         
         .intro-lead { font-size: 2.2rem; font-weight: 300; line-height: 1.4; margin-top: 2rem; margin-bottom: 0; max-width: 800px; }
-        .body-text { font-size: 1.15rem; max-width: 750px; margin-bottom: 1.75rem; font-weight: 400; }
+        .body-text { font-size: 1.15rem; font-weight: 400; max-width: 750px; margin-bottom: 1.75rem; }
         
-        .theme-yellow .body-text { color: rgba(196, 0, 122, 0.9); }
-        .theme-magenta .body-text { color: rgba(252, 209, 22, 0.9); }
+        #about .body-text { color: rgba(255, 255, 255, 0.9) !important; }
         
-        .framework-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3rem; font-weight: 700; display: inline-block; padding-bottom: 0.5rem; }
-        .frame-sub { font-size: 1.15rem; font-style: italic; margin-bottom: 3.5rem; }
+        .framework-title { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3rem; display: inline-block; padding-bottom: 0.5rem; }
+        .frame-sub { font-size: 1.15rem; font-weight: 300; font-style: italic; margin-bottom: 3.5rem; }
         
         .pillar { margin-bottom: 5rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2.5rem; width: 100%; display: flex; flex-direction: column; }
         .pillar:first-of-type { border-top: none; padding-top: 0; }
         .pillar:last-child { margin-bottom: 0; }
-        h3 { font-size: 2rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; font-weight: 700; }
-        .pillar .body-text { font-size: 1.15rem; }
+        h3 { font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        .pillar .body-text { font-size: 1.15rem; font-weight: 300; }
         
         .pipeline-container { position: relative; border-left: 1px solid var(--step-line-color); padding-left: 2.5rem; margin-left: 0.5rem; width: 100%; text-align: left; align-items: flex-start; }
         .pipeline-step { position: relative; margin-bottom: 3.5rem; width: 100%; }
         .pipeline-step:last-child { margin-bottom: 0; }
         .step-number { position: absolute; left: calc(-2.5rem - 12px - (1 / 2) * 1px); top: 5px; background-color: var(--step-num-bg); color: var(--step-num-color); font-size: 0.9rem; font-weight: 700; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--step-num-border); }
         
-        #process .framework-title { font-size: 1.1rem; }
-        #process .frame-sub { font-size: 1.15rem; }
+        #process .framework-title { font-size: 1.1rem; font-weight: 700; }
+        #process .frame-sub { font-size: 1.15rem; font-weight: 400; color: rgba(255, 255, 255, 0.9) !important; }
         .step-details h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0; }
-        .step-details .body-text { font-size: 1.15rem; }
+        .step-details .body-text { font-size: 1.15rem; font-weight: 400; }
         .step-conditional .step-number { border-style: dashed; }
         .conditional-tag { font-size: 0.9rem; font-weight: 400; text-transform: lowercase; }
         
-        #contact h2 { font-size: 2.5rem; margin-bottom: 2.5rem; font-weight: 300; }
-        .email-link { font-size: 2rem; text-decoration: none; font-weight: 700; padding-bottom: 0.3rem; transition: opacity 0.2s ease; display: inline-block; }
+        #contact h2 { font-size: 2.5rem; font-weight: 300; margin-bottom: 2.5rem; }
+        .email-link { font-size: 2rem; font-weight: 700; text-decoration: none; padding-bottom: 0.3rem; transition: opacity 0.2s ease; display: inline-block; }
         .email-link:hover { opacity: 0.8; }
         
         footer { width: 100%; padding: 5px 0; border-top: 1px solid rgba(0, 0, 0, 0.05); background-color: transparent; }
@@ -136,22 +129,22 @@
         </div>
     </section>
 
-    <section id="framework" class="text-left" style="background-color: #FFFFFF; color: #000000;">
+    <section id="framework" class="text-left" style="background-color: #FFFFFF; color: rgba(0, 0, 0, 1);">
         <div class="slide-content">
-            <div><span class="framework-title" style="color: #cc007e; border-bottom: 2px solid #cc007e;">Our Framework</span></div>
-            <p class="body-text frame-sub" style="color: #000000;">Our practice is built on a framework designed to shift power back to the creator, the collector, and the community.</p>
+            <div><span class="framework-title" style="color: rgba(204, 0, 126, 1); border-bottom: 2px solid rgba(204, 0, 126, 1);">Our Framework</span></div>
+            <p class="body-text frame-sub" style="color: rgba(0, 0, 0, 1);">Our practice is built on a framework designed to shift power back to the creator, the collector, and the community.</p>
             
             <div class="pillar" style="border-top-color: rgba(0,0,0,0.1)">
-                <h3 style="color: #cc007e;">DE-CENTRALIZED</h3>
-                <p class="body-text" style="color: #000000;">We believe archives shouldn't just belong to massive data centers, old institutions or galleries. We bring professional cataloging directly to your space, beyond institutional gatekeeping.</p>
+                <h3 style="color: rgba(204, 0, 126, 1);">DE-CENTRALIZED</h3>
+                <p class="body-text" style="color: rgba(0, 0, 0, 1);">We believe archives shouldn't just belong to massive data centers, old institutions or galleries. We bring professional cataloging directly to your space, beyond institutional gatekeeping.</p>
             </div>
             <div class="pillar" style="border-top-color: rgba(0,0,0,0.1)">
-                <h3 style="color: #cc007e;">DATA-DRIVEN</h3>
-                <p class="body-text" style="color: #000000;">We enable artists, collectors and communities to own, control, and utilize their data. No third-party dependencies--just your collection carefully mapped and in your hands.</p>
+                <h3 style="color: rgba(204, 0, 126, 1);">DATA-DRIVEN</h3>
+                <p class="body-text" style="color: rgba(0, 0, 0, 1);">We enable artists, collectors and communities to own, control, and utilize their data. No third-party dependencies--just your collection carefully mapped and in your hands.</p>
             </div>
             <div class="pillar" style="border-top-color: rgba(0,0,0,0.1)">
-                <h3 style="color: #cc007e;">DYNAMIC</h3>
-                <p class="body-text" style="color: #000000;">Accession records and archives are inherently political; they shape how art and collections are understood. We reject the idea of a fixed archive aligned with colonial and extractive standards. We build agile systems that are responsive to changing cultural realities and fluid narratives.</p>
+                <h3 style="color: rgba(204, 0, 126, 1);">DYNAMIC</h3>
+                <p class="body-text" style="color: rgba(0, 0, 0, 1);">Accession records and archives are inherently political; they shape how art and collections are understood. <br><br>We reject the idea of a fixed archive aligned with colonial and extractive standards. We build agile systems that are responsive to changing cultural realities and fluid narratives.</p>
             </div>
         </div>
     </section>
@@ -159,56 +152,56 @@
     <section id="process" class="theme-magenta text-left">
         <div class="slide-content">
             <div><span class="framework-title" style="color: var(--yellow); border-bottom: 2px solid var(--yellow);">Our Process</span></div>
-            <p class="body-text frame-sub" style="color: #FFFFFF;">We operate under a rigorous, transparent workflow designed to guarantee data integrity and physical safety for every object handled.</p>
+            <p class="body-text frame-sub">We operate under a rigorous, transparent workflow designed to guarantee data integrity and physical safety for every object handled.</p>
             
             <div class="pipeline-container">
                 <div class="pipeline-step">
                     <div class="step-number">01</div>
                     <div class="step-details">
-                        <h3 style="color: #ffd21f;">Physical Verification</h3>
-                        <p class="body-text" style="color: #ffffff;">Cross-referencing objects against existing manifests to trace provenance.</p>
+                        <h3 style="color: rgba(255, 210, 31, 1);">Physical Verification</h3>
+                        <p class="body-text" style="color: rgba(255, 255, 255, 0.9);">Cross-referencing objects against existing manifests to trace provenance.</p>
                     </div>
                 </div>
                 <div class="pipeline-step">
                     <div class="step-number">02</div>
                     <div class="step-details">
-                        <h3 style="color: #ffd21f;">Condition Check</h3>
-                        <p class="body-text" style="color: #ffffff;">Meticulous material examination, structural assessment, and scale mapping.</p>
+                        <h3 style="color: rgba(255, 210, 31, 1);">Condition Check</h3>
+                        <p class="body-text" style="color: rgba(255, 255, 255, 0.9);">Meticulous material examination, structural assessment, and scale mapping.</p>
                     </div>
                 </div>
                 <div class="pipeline-step step-conditional">
                     <div class="step-number">03</div>
                     <div class="step-details">
-                        <h3 style="color: #ffd21f;">Conservation Treatment <span class="conditional-tag" style="color: var(--yellow)">-- Conditional</span></h3>
-                        <p class="body-text" style="color: #ffffff;">Stabilization and preservation measures--executed only when structurally required.</p>
+                        <h3 style="color: rgba(255, 210, 31, 1);">Conservation Treatment <span class="conditional-tag" style="color: var(--yellow)">-- Conditional</span></h3>
+                        <p class="body-text" style="color: rgba(255, 255, 255, 0.9);">Stabilization and preservation measures--executed only when structurally required.</p>
                     </div>
                 </div>
                 <div class="pipeline-step">
                     <div class="step-number">04</div>
                     <div class="step-details">
-                        <h3 style="color: #ffd21f;">High-Resolution Photography</h3>
-                        <p class="body-text" style="color: #ffffff;">Visual documentation including high-fidelity macro details and true-color states.</p>
+                        <h3 style="color: rgba(255, 210, 31, 1);">High-Resolution Photography</h3>
+                        <p class="body-text" style="color: rgba(255, 255, 255, 0.9);">Visual documentation including high-fidelity macro details and true-color states.</p>
                     </div>
                 </div>
                 <div class="pipeline-step">
                     <div class="step-number">05</div>
                     <div class="step-details">
-                        <h3 style="color: #ffd21f;">Systematic Cataloging</h3>
-                        <p class="body-text" style="color: #ffffff;">Deploying custom archival tagging and physical location tracking mechanics.</p>
+                        <h3 style="color: rgba(255, 210, 31, 1);">Systematic Tagging</h3>
+                        <p class="body-text" style="color: rgba(255, 255, 255, 0.9);">Deploying custom archival tagging and physical location tracking mechanics.</p>
                     </div>
                 </div>
                 <div class="pipeline-step">
                     <div class="step-number">06</div>
                     <div class="step-details">
-                        <h3 style="color: #ffd21f;">Database Synchronization</h3>
-                        <p class="body-text" style="color: #ffffff;">Encoding verified data and physical storage points into digital records.</p>
+                        <h3 style="color: rgba(255, 210, 31, 1);">Database Synchronization</h3>
+                        <p class="body-text" style="color: rgba(255, 255, 255, 0.9);">Encoding verified data and physical storage points into digital records.</p>
                     </div>
                 </div>
                 <div class="pipeline-step">
                     <div class="step-number">07</div>
                     <div class="step-details">
-                        <h3 style="color: #ffd21f;">Final Validation</h3>
-                        <p class="body-text" style="color: #ffffff;">Integrity checking to guarantee high data accuracy before permanent recording.</p>
+                        <h3 style="color: rgba(255, 210, 31, 1);">Final Validation</h3>
+                        <p class="body-text" style="color: rgba(255, 255, 255, 0.9);">Integrity checking to guarantee high data accuracy before permanent recording.</p>
                     </div>
                 </div>
             </div>
@@ -219,7 +212,7 @@
         <div class="slide-content">
             <h2>Let us take a look.</h2>
             <div>
-                <a href="mailto:hello@matamata.ph" class="email-link" style="color: var(--magenta); border-bottom: 4px dashed #cc007e;">hello@matamata.ph</a>
+                <a href="mailto:hello@matamata.ph" class="email-link" style="color: var(--magenta); border-bottom: 4px dashed rgba(204, 0, 126, 1);">hello@matamata.ph</a>
             </div>
         </div>
     </section>
@@ -227,7 +220,7 @@
     <footer>
         <div class="footer-container">
             <p class="copyright">
-                <span style="color: #cc007e;">&copy;</span> 2026 MATÁ MATÁ. All rights reserved. <span style="color: #cc007e;">⟐</span> 
+                <span style="color: rgba(204, 0, 126, 1);">&copy;</span> 2026 MATÁ MATÁ. All rights reserved. <span style="color: rgba(204, 0, 126, 1);">⟐</span> 
                 <a href="https://instagram.com/matamata.ph" target="_blank" rel="noopener">socials</a>
             </p>
         </div>
